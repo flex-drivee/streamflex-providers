@@ -1,0 +1,92 @@
+{
+  "$schema": "https://streamflex.dev/schemas/provider/v1.json",
+  "schemaVersion": 1,
+  "providerVersion": 3,
+  "minimumEngineVersion": "1.0.0",
+
+  "id": "hdhub4u",
+  "name": "HDHub4u",
+  "description": "Hindi dubbed movies and web series. One of the most complete Hindi content providers.",
+  "language": "hi",
+  "region": "IN",
+
+  "lifecycle": "stable",
+  "status": "online",
+
+  "domains": {
+    "primary": "https://new3.hdhub4u.cl",
+    "mirrors": [
+      "https://hdhub4u.fyi",
+      "https://hdhub4u.mom",
+      "https://hdhub4u.med"
+    ],
+    "search": "https://search.pingora.fyi/collections/post/documents/search",
+    "updatedAt": "2026-07-24"
+  },
+
+  "capabilities": {
+    "supportsSearch": true,
+    "supportsMovies": true,
+    "supportsTV": true,
+    "supportsAnime": false,
+    "supportsDub": true,
+    "supportsSub": false,
+    "supportsHome": true,
+    "supportsMultipleServers": true,
+    "supportsDirectLinks": false,
+    "supportsDownload": true,
+    "supportsSkipIntro": false,
+    "supportsResume": false,
+    "isSequential": false,
+    "sequentialDelayMs": 0
+  },
+
+  "endpoints": {
+    "searchType": "TYPESENSE_API",
+    "detailType": "HTML_PAGE",
+    "sourceType": "HTML_EMBEDDED"
+  },
+
+  "extractorIds": [
+    "hubcloud",
+    "pixeldrain",
+    "dood",
+    "streamtape",
+    "filemoon",
+    "hubdrive",
+    "hubcdn",
+    "hblinks",
+    "googlevideo"
+  ],
+
+  "priority": 100,
+  "fallbackTo": ["netmirror", "vegamovies"],
+
+  "rateLimit": {
+    "maxConcurrent": 3,
+    "delayBetweenMs": 0
+  },
+
+  "testCases": [
+    {
+      "title": "Inception",
+      "year": 2010,
+      "tmdbId": 27205,
+      "type": "movie",
+      "minimumStreams": 1
+    },
+    {
+      "title": "The Dark Knight",
+      "year": 2008,
+      "tmdbId": 155,
+      "type": "movie",
+      "minimumStreams": 1
+    }
+  ],
+
+  "maintainer": {
+    "github": "flex-drivee",
+    "addedAt": "2026-07-24",
+    "lastVerified": "2026-07-24"
+  }
+}

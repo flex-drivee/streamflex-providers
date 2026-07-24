@@ -1,0 +1,247 @@
+{
+  "_meta": {
+    "description": "StreamFlex Extractor Registry. Defines all registered extractors, their URL patterns, priorities, and required headers.",
+    "version": "1.0.0",
+    "updatedAt": "2026-07-24"
+  },
+  "extractors": [
+    {
+      "id": "hubcloud",
+      "name": "HubCloud",
+      "priority": 90,
+      "status": "active",
+      "domains": [
+        "hubcloud.tel",
+        "hubcloud.lol",
+        "hubcloud.art",
+        "hubcloud.bond",
+        "hubcloud.mov",
+        "hubcloud.life",
+        "hubcloud.bar"
+      ],
+      "outputFormats": ["mp4", "m3u8"],
+      "requiresReferer": true,
+      "headers": {
+        "Referer": "https://hubcloud.tel/",
+        "Origin": "https://hubcloud.tel"
+      },
+      "notes": "Resolves through multiple hops. Engine must follow redirects. Outputs Google Video or direct MP4.",
+      "androidClass": "com.streamflex.extractors.hubcloud.HubCloudExtractor",
+      "webTs": "src/lib/extractors/HubCloudExtractor.ts"
+    },
+    {
+      "id": "pixeldrain",
+      "name": "PixelDrain",
+      "priority": 85,
+      "status": "active",
+      "domains": [
+        "pixeldrain.com"
+      ],
+      "outputFormats": ["mp4", "m3u8"],
+      "requiresReferer": false,
+      "headers": {},
+      "notes": "Direct API. CORS-friendly on web. URL pattern: pixeldrain.com/u/[FILE_ID] → API: pixeldrain.com/api/file/[FILE_ID]",
+      "androidClass": "com.streamflex.extractors.pixeldrain.PixelDrainExtractor",
+      "webTs": "src/lib/extractors/PixelDrainExtractor.ts"
+    },
+    {
+      "id": "filemoon",
+      "name": "FileMoon",
+      "priority": 80,
+      "status": "active",
+      "domains": [
+        "filemoon.sx",
+        "filemoon.to",
+        "filemoon.in",
+        "filemoon.wf"
+      ],
+      "outputFormats": ["m3u8"],
+      "requiresReferer": true,
+      "headers": {
+        "Referer": "https://filemoon.sx/",
+        "Origin": "https://filemoon.sx"
+      },
+      "notes": "Uses P.A.C.K.E.R. obfuscation. Engine must deobfuscate JavaScript to find HLS URL.",
+      "androidClass": "com.streamflex.extractors.shared.PackerExtractor",
+      "webTs": "src/lib/extractors/FileMoonExtractor.ts"
+    },
+    {
+      "id": "dood",
+      "name": "DooD",
+      "priority": 70,
+      "status": "active",
+      "domains": [
+        "dood.la",
+        "dood.re",
+        "dood.so",
+        "dood.pm",
+        "dood.sh",
+        "dood.cx",
+        "dood.stream",
+        "ds2play.com",
+        "doods.pro",
+        "do0od.com",
+        "d000d.com",
+        "dooood.com"
+      ],
+      "outputFormats": ["mp4"],
+      "requiresReferer": true,
+      "headers": {
+        "Referer": "https://dood.la/"
+      },
+      "notes": "Uses token-based URL construction. Token extracted from page JS. Final URL: CDN_HOST/TOKEN_PATH?token=TOKEN&expiry=TIMESTAMP",
+      "androidClass": "com.streamflex.extractors.dood.DoodExtractor",
+      "webTs": "src/lib/extractors/DoodExtractor.ts"
+    },
+    {
+      "id": "streamtape",
+      "name": "StreamTape",
+      "priority": 65,
+      "status": "active",
+      "domains": [
+        "streamtape.com",
+        "streamtape.to",
+        "streamtape.net",
+        "streamtape.xyz",
+        "strcloud.in",
+        "shavetape.cash"
+      ],
+      "outputFormats": ["mp4"],
+      "requiresReferer": true,
+      "headers": {
+        "Referer": "https://streamtape.com/"
+      },
+      "notes": "URL obfuscated by string concatenation in JS. Extract two variables and concat to form final URL.",
+      "androidClass": "com.streamflex.extractors.streamtape.StreamTapeExtractor",
+      "webTs": "src/lib/extractors/StreamTapeExtractor.ts"
+    },
+    {
+      "id": "hubdrive",
+      "name": "HubDrive",
+      "priority": 75,
+      "status": "active",
+      "domains": [
+        "hubdrive.dad",
+        "hubdrive.men",
+        "hubdrive.me",
+        "hubdrive.be"
+      ],
+      "outputFormats": ["mp4", "m3u8"],
+      "requiresReferer": true,
+      "headers": {
+        "Referer": "https://hubdrive.dad/"
+      },
+      "notes": "Similar flow to HubCloud. Often chains into Google Video.",
+      "androidClass": "com.streamflex.extractors.hubdrive.HubDriveExtractor",
+      "webTs": "src/lib/extractors/HubDriveExtractor.ts"
+    },
+    {
+      "id": "hubcdn",
+      "name": "HubCDN",
+      "priority": 72,
+      "status": "active",
+      "domains": [
+        "hubcdn.xyz",
+        "hubcdn.store"
+      ],
+      "outputFormats": ["mp4", "m3u8"],
+      "requiresReferer": true,
+      "headers": {
+        "Referer": "https://hubcdn.xyz/"
+      },
+      "notes": "CDN wrapper, often outputs M3U8. Similar parsing to HubCloud.",
+      "androidClass": "com.streamflex.extractors.hubcdn.HubCDNExtractor",
+      "webTs": "src/lib/extractors/HubCDNExtractor.ts"
+    },
+    {
+      "id": "hblinks",
+      "name": "HBLinks",
+      "priority": 68,
+      "status": "active",
+      "domains": [
+        "hblinks.pro",
+        "hblinksme.workers.dev"
+      ],
+      "outputFormats": ["mp4", "m3u8"],
+      "requiresReferer": true,
+      "headers": {
+        "Referer": "https://hblinks.pro/"
+      },
+      "notes": "Gateway extractor. Resolves into HubCloud or direct links.",
+      "androidClass": "com.streamflex.extractors.hblinks.HBLinksExtractor",
+      "webTs": "src/lib/extractors/HBLinksExtractor.ts"
+    },
+    {
+      "id": "googlevideo",
+      "name": "Google Video",
+      "priority": 95,
+      "status": "active",
+      "domains": [
+        "googlevideo.com",
+        "googleusercontent.com",
+        "rr1---sn"
+      ],
+      "outputFormats": ["mp4", "m3u8"],
+      "requiresReferer": false,
+      "headers": {},
+      "notes": "Direct Google CDN URL. Always highest quality when available. No extraction needed — treat as direct playable URL.",
+      "androidClass": "com.streamflex.extractors.googlevideo.GoogleVideoExtractor",
+      "webTs": "src/lib/extractors/GoogleVideoExtractor.ts"
+    },
+    {
+      "id": "mixdrop",
+      "name": "MixDrop",
+      "priority": 55,
+      "status": "pending",
+      "domains": [
+        "mixdrop.sb",
+        "mixdrop.to",
+        "mixdrop.ch",
+        "mixdrop.co",
+        "mixdrop.bz"
+      ],
+      "outputFormats": ["mp4"],
+      "requiresReferer": true,
+      "headers": {
+        "Referer": "https://mixdrop.sb/"
+      },
+      "notes": "AES-encrypted source URL in page JS. Key and IV embedded in page source.",
+      "androidClass": "com.streamflex.extractors.mixdrop.MixDropExtractor",
+      "webTs": "src/lib/extractors/MixDropExtractor.ts"
+    },
+    {
+      "id": "redirect",
+      "name": "Redirect Resolver",
+      "priority": 50,
+      "status": "active",
+      "domains": [],
+      "outputFormats": ["mp4", "m3u8"],
+      "requiresReferer": false,
+      "headers": {},
+      "notes": "Generic HTTP redirect follower. Used as fallback when URL host doesn't match a specific extractor. Follows redirects until reaching a known host or direct media URL.",
+      "androidClass": "com.streamflex.extractors.redirect.RedirectExtractor",
+      "webTs": "src/lib/extractors/RedirectExtractor.ts"
+    }
+  ],
+  "qualityPatterns": {
+    "2160p": ["2160p", "4k", "uhd", "2160"],
+    "1080p": ["1080p", "1080", "fhd", "fullhd"],
+    "720p": ["720p", "720", "hd"],
+    "480p": ["480p", "480"],
+    "360p": ["360p", "360"],
+    "unknown": []
+  },
+  "defaultFallbackOrder": [
+    "googlevideo",
+    "hubcloud",
+    "hubdrive",
+    "hubcdn",
+    "hblinks",
+    "pixeldrain",
+    "filemoon",
+    "dood",
+    "streamtape",
+    "mixdrop",
+    "redirect"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://streamflex.dev/schemas/provider/v1.json",
+  "schemaVersion": 1,
+  "providerVersion": 1,
+  "minimumEngineVersion": "1.0.0",
+
+  "id": "vegamovies",
+  "name": "VegaMovies",
+  "description": "Hindi, English and dubbed movies in multiple qualities including 4K.",
+  "language": "hi",
+  "region": "IN",
+
+  "lifecycle": "beta",
+  "status": "unknown",
+
+  "domains": {
+    "primary": "https://vegamovies.dad",
+    "mirrors": [
+      "https://vegamovies.mom",
+      "https://vegamovies.nl"
+    ],
+    "updatedAt": "2026-07-24"
+  },
+
+  "capabilities": {
+    "supportsSearch": true,
+    "supportsMovies": true,
+    "supportsTV": false,
+    "supportsAnime": false,
+    "supportsDub": true,
+    "supportsSub": false,
+    "supportsHome": true,
+    "supportsMultipleServers": true,
+    "supportsDirectLinks": false,
+    "supportsDownload": true,
+    "supportsSkipIntro": false,
+    "supportsResume": false,
+    "isSequential": false,
+    "sequentialDelayMs": 0
+  },
+
+  "endpoints": {
+    "searchType": "HTML_PAGE",
+    "detailType": "HTML_PAGE",
+    "sourceType": "HTML_EMBEDDED"
+  },
+
+  "extractorIds": [
+    "hubcloud",
+    "pixeldrain",
+    "dood",
+    "filemoon"
+  ],
+
+  "priority": 80,
+  "fallbackTo": [],
+
+  "rateLimit": {
+    "maxConcurrent": 2,
+    "delayBetweenMs": 0
+  },
+
+  "testCases": [
+    {
+      "title": "Inception",
+      "year": 2010,
+      "tmdbId": 27205,
+      "type": "movie",
+      "minimumStreams": 1
+    }
+  ],
+
+  "maintainer": {
+    "github": "flex-drivee",
+    "addedAt": "2026-07-24",
+    "lastVerified": "2026-07-24"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "description": "StreamFlex provider health status. Auto-updated by GitHub Actions at 04:00 UTC daily.",
+    "schema": "health/v1",
+    "lastChecked": "2026-07-24T04:00:00Z",
+    "nextCheck": "2026-07-25T04:00:00Z"
+  },
+  "providers": {
+    "hdhub4u": {
+      "status": "online",
+      "lastSuccess": "2026-07-24T04:00:00Z",
+      "lastFailure": null,
+      "consecutiveFailures": 0,
+      "avgSearchResultCount": 5,
+      "avgStreamCount": 3,
+      "activeDomain": "https://new3.hdhub4u.cl"
+    },
+    "netmirror": {
+      "status": "unknown",
+      "lastSuccess": null,
+      "lastFailure": null,
+      "consecutiveFailures": 0,
+      "avgSearchResultCount": 0,
+      "avgStreamCount": 0,
+      "activeDomain": null
+    },
+    "ottmirror": {
+      "status": "unknown",
+      "lastSuccess": null,
+      "lastFailure": null,
+      "consecutiveFailures": 0,
+      "avgSearchResultCount": 0,
+      "avgStreamCount": 0,
+      "activeDomain": null
+    },
+    "vegamovies": {
+      "status": "unknown",
+      "lastSuccess": null,
+      "lastFailure": null,
+      "consecutiveFailures": 0,
+      "avgSearchResultCount": 0,
+      "avgStreamCount": 0,
+      "activeDomain": null
+    }
+  },
+  "extractors": {
+    "hubcloud": { "status": "online", "lastChecked": "2026-07-24T04:00:00Z" },
+    "pixeldrain": { "status": "online", "lastChecked": "2026-07-24T04:00:00Z" },
+    "dood": { "status": "online", "lastChecked": "2026-07-24T04:00:00Z" },
+    "streamtape": { "status": "online", "lastChecked": "2026-07-24T04:00:00Z" },
+    "filemoon": { "status": "online", "lastChecked": "2026-07-24T04:00:00Z" },
+    "hubdrive": { "status": "online", "lastChecked": "2026-07-24T04:00:00Z" },
+    "hubcdn": { "status": "online", "lastChecked": "2026-07-24T04:00:00Z" },
+    "mixdrop": { "status": "unknown", "lastChecked": null },
+    "googlevideo": { "status": "online", "lastChecked": "2026-07-24T04:00:00Z" },
+    "hblinks": { "status": "online", "lastChecked": "2026-07-24T04:00:00Z" }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "description": "Alternate title mappings for the TitleMatcher confidence scoring engine. Used when provider search titles differ from TMDB canonical titles.",
+    "version": "1.0.0",
+    "updatedAt": "2026-07-24"
+  },
+  "movies": {
+    "27205": {
+      "tmdbTitle": "Inception",
+      "alternates": ["Inception (2010)", "Inception Hindi Dubbed", "Inception HQ", "Inception BluRay"]
+    },
+    "155": {
+      "tmdbTitle": "The Dark Knight",
+      "alternates": ["Dark Knight", "The Dark Knight (2008)", "Batman Dark Knight", "Dark Knight Hindi"]
+    },
+    "120": {
+      "tmdbTitle": "The Lord of the Rings: The Fellowship of the Ring",
+      "alternates": ["Lord of the Rings Fellowship", "LOTR Fellowship", "Fellowship of the Ring"]
+    },
+    "680": {
+      "tmdbTitle": "Pulp Fiction",
+      "alternates": ["Pulp Fiction (1994)", "Pulp Fiction Hindi"]
+    }
+  },
+  "tv": {
+    "1396": {
+      "tmdbTitle": "Breaking Bad",
+      "alternates": ["Breaking Bad S", "Breaking Bad Season"]
+    },
+    "1399": {
+      "tmdbTitle": "Game of Thrones",
+      "alternates": ["GOT", "Game of Thrones S", "GoT Season"]
+    }
+  }
+}

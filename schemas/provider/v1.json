@@ -1,0 +1,256 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://streamflex.dev/schemas/provider/v1.json",
+  "title": "StreamFlex Provider Definition",
+  "description": "Schema for StreamFlex provider definition files. No parsing logic (selectors, regex, XPath) belongs here.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "providerVersion",
+    "minimumEngineVersion",
+    "id",
+    "name",
+    "lifecycle",
+    "status",
+    "domains",
+    "capabilities",
+    "endpoints",
+    "extractorIds",
+    "priority",
+    "rateLimit",
+    "testCases",
+    "maintainer"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "integer",
+      "description": "Schema version. Increment only when breaking changes are made to this schema.",
+      "minimum": 1
+    },
+    "providerVersion": {
+      "type": "integer",
+      "description": "Provider version. Increment when scraping logic changes.",
+      "minimum": 1
+    },
+    "minimumEngineVersion": {
+      "type": "string",
+      "description": "Minimum StreamFlex engine version required to use this provider.",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique provider identifier. Lowercase, alphanumeric, hyphens only.",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable provider name."
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of what content this provider serves."
+    },
+    "language": {
+      "type": "string",
+      "description": "Primary content language (ISO 639-1 code).",
+      "pattern": "^[a-z]{2}$"
+    },
+    "region": {
+      "type": "string",
+      "description": "Primary region (ISO 3166-1 alpha-2 code).",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "lifecycle": {
+      "type": "string",
+      "description": "Provider maturity status.",
+      "enum": ["stable", "beta", "experimental", "deprecated", "disabled"]
+    },
+    "status": {
+      "type": "string",
+      "description": "Current operational status. Manually updated.",
+      "enum": ["online", "degraded", "offline"]
+    },
+    "domains": {
+      "type": "object",
+      "required": ["primary", "mirrors", "updatedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "primary": {
+          "type": "string",
+          "description": "Primary domain. Must be https://.",
+          "pattern": "^https://"
+        },
+        "mirrors": {
+          "type": "array",
+          "description": "Fallback mirror domains in priority order.",
+          "items": {
+            "type": "string",
+            "pattern": "^https://"
+          }
+        },
+        "search": {
+          "type": "string",
+          "description": "Separate search endpoint if different from primary domain (e.g. Typesense/Algolia).",
+          "pattern": "^https://"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Date domains were last verified (ISO 8601 date).",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "required": [
+        "supportsSearch",
+        "supportsMovies",
+        "supportsTV",
+        "supportsAnime",
+        "supportsDub",
+        "supportsSub",
+        "supportsHome",
+        "supportsMultipleServers",
+        "supportsDirectLinks",
+        "isSequential"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "supportsSearch": { "type": "boolean" },
+        "supportsMovies": { "type": "boolean" },
+        "supportsTV": { "type": "boolean" },
+        "supportsAnime": { "type": "boolean" },
+        "supportsDub": { "type": "boolean", "description": "Supports dubbed audio tracks." },
+        "supportsSub": { "type": "boolean", "description": "Supports subtitle tracks." },
+        "supportsHome": { "type": "boolean", "description": "Provides a home/browse page." },
+        "supportsMultipleServers": { "type": "boolean", "description": "Provides multiple stream servers per item." },
+        "supportsDirectLinks": { "type": "boolean", "description": "Provides direct MP4/M3U8 links (no extractor needed)." },
+        "supportsDownload": { "type": "boolean" },
+        "supportsSkipIntro": { "type": "boolean" },
+        "supportsResume": { "type": "boolean" },
+        "isSequential": {
+          "type": "boolean",
+          "description": "If true, requests must be made sequentially (not parallel) to avoid bans."
+        },
+        "sequentialDelayMs": {
+          "type": "integer",
+          "description": "Delay in ms between sequential requests. Only used when isSequential=true.",
+          "minimum": 0
+        }
+      }
+    },
+    "endpoints": {
+      "type": "object",
+      "required": ["searchType", "detailType", "sourceType"],
+      "additionalProperties": false,
+      "properties": {
+        "searchType": {
+          "type": "string",
+          "description": "Type of response from the search endpoint.",
+          "enum": ["HTML_PAGE", "JSON_API", "TYPESENSE_API", "ALGOLIA_API", "GRAPHQL_API"]
+        },
+        "detailType": {
+          "type": "string",
+          "description": "Type of response from the detail page endpoint.",
+          "enum": ["HTML_PAGE", "JSON_API", "GRAPHQL_API"]
+        },
+        "sourceType": {
+          "type": "string",
+          "description": "Type of response from the source/embed endpoint.",
+          "enum": ["HTML_EMBEDDED", "AJAX_JSON", "IFRAME_ONLY", "DIRECT_LINK"]
+        }
+      }
+    },
+    "extractorIds": {
+      "type": "array",
+      "description": "List of extractor IDs used by this provider. Must match IDs in extractors/registry.json.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$"
+      },
+      "minItems": 0
+    },
+    "priority": {
+      "type": "integer",
+      "description": "Provider priority. Higher = tried first. 100=highest, 0=lowest.",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "fallbackTo": {
+      "type": "array",
+      "description": "Ordered list of provider IDs to fall back to if this provider fails.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$"
+      }
+    },
+    "rateLimit": {
+      "type": "object",
+      "required": ["maxConcurrent", "delayBetweenMs"],
+      "additionalProperties": false,
+      "properties": {
+        "maxConcurrent": {
+          "type": "integer",
+          "description": "Maximum concurrent requests allowed to this provider.",
+          "minimum": 1
+        },
+        "delayBetweenMs": {
+          "type": "integer",
+          "description": "Minimum delay between requests in milliseconds.",
+          "minimum": 0
+        }
+      }
+    },
+    "testCases": {
+      "type": "array",
+      "description": "Test cases used by the automated health check pipeline.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["title", "year", "tmdbId", "type", "minimumStreams"],
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string" },
+          "year": { "type": "integer" },
+          "tmdbId": { "type": "integer" },
+          "type": {
+            "type": "string",
+            "enum": ["movie", "tv", "anime"]
+          },
+          "minimumStreams": {
+            "type": "integer",
+            "description": "Minimum number of playable streams expected to pass this test.",
+            "minimum": 1
+          },
+          "season": { "type": "integer" },
+          "episode": { "type": "integer" }
+        }
+      }
+    },
+    "maintainer": {
+      "type": "object",
+      "required": ["github", "addedAt", "lastVerified"],
+      "additionalProperties": false,
+      "properties": {
+        "github": {
+          "type": "string",
+          "description": "GitHub username of the provider maintainer."
+        },
+        "addedAt": {
+          "type": "string",
+          "description": "Date this provider was added (ISO 8601 date).",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "lastVerified": {
+          "type": "string",
+          "description": "Date this provider was last manually verified working (ISO 8601 date).",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        }
+      }
+    }
+  }
+}

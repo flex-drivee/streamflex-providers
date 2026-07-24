@@ -1,0 +1,64 @@
+name: Provider Health Check
+
+on:
+  schedule:
+    - cron: '0 4 * * *'   # 4:00 AM UTC daily
+  workflow_dispatch:       # Allow manual trigger
+
+jobs:
+  health-check:
+    name: Run Provider Health Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 lxml
+
+      - name: Run provider health checks
+        id: health
+        run: |
+          python scripts/health_check.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+      - name: Commit updated health.json
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update health.json [skip ci]"
+          file_pattern: "health/health.json"
+          commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+
+      - name: Create issue on critical failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let health = {};
+            try {
+              health = JSON.parse(fs.readFileSync('health/health.json', 'utf8'));
+            } catch(e) {}
+
+            const offline = Object.entries(health.providers || {})
+              .filter(([, v]) => v.status === 'offline')
+              .map(([k]) => k);
+
+            if (offline.length > 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `🔴 Providers offline: ${offline.join(', ')}`,
+                body: `The following providers failed health checks on ${new Date().toISOString().split('T')[0]}:\n\n${offline.map(p => `- **${p}**`).join('\n')}\n\nPlease check domain status and update provider definitions.`,
+                labels: ['provider-broken', 'automated']
+              });
+            }
