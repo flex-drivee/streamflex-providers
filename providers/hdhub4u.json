@@ -14,14 +14,15 @@
   "status": "online",
 
   "domains": {
-    "primary": "https://new3.hdhub4u.cl",
+    "primary": "https://new4.hdhub4u.cl",
     "mirrors": [
+      "https://new3.hdhub4u.cl",
       "https://hdhub4u.fyi",
       "https://hdhub4u.mom",
       "https://hdhub4u.med"
     ],
     "search": "https://search.pingora.fyi/collections/post/documents/search",
-    "updatedAt": "2026-07-24"
+    "updatedAt": "2026-08-07"
   },
 
   "capabilities": {
