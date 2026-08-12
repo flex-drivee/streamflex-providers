@@ -14,8 +14,9 @@
   "status": "online",
 
   "domains": {
-    "primary": "https://new4.hdhub4u.cl",
+    "primary": "https://new1.hdhub4u.af",
     "mirrors": [
+      "https://hdhub4u.ec",
       "https://new3.hdhub4u.cl",
       "https://hdhub4u.fyi",
       "https://hdhub4u.mom",
