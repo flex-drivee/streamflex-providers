@@ -14,8 +14,10 @@
   "status": "unknown",
 
   "domains": {
-    "primary": "https://vegamovies.catering",
-    "mirrors": [
+    "primary":
+"https://new1.vegamovies.futbo", 
+"mirrors": [
+      "https://vegamovies.catering",
       "https://vegamovies.dad",
       "https://vegamovies.mom",
       "https://vegamovies.nl"
