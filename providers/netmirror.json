@@ -8,7 +8,7 @@
   "name": "NetMirror",
   "description": "Movies and TV series with multiple quality options. English and Hindi content.",
   "language": "en",
-  "region": "IN",
+  "region": "IN", 
 
   "lifecycle": "beta",
   "status": "unknown",
