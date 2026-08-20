@@ -1,0 +1,64 @@
+{
+  "$schema": "https://streamflex.dev/schemas/provider/v1.json",
+  "schemaVersion": 1,
+  "providerVersion": 1,
+  "minimumEngineVersion": "1.0.0",
+
+  "id": "fourkhdhub",
+  "name": "4KHDHub",
+  "description": "High quality 4K and 1080p movies and web series.",
+  "language": "en",
+  "region": "GLOBAL",
+
+  "lifecycle": "stable",
+  "status": "online",
+
+  "domains": {
+    "primary": "https://4khdhub.one",
+    "mirrors": [],
+    "updatedAt": "2026-08-20"
+  },
+
+  "capabilities": {
+    "supportsSearch": true,
+    "supportsMovies": true,
+    "supportsTV": true,
+    "supportsAnime": false,
+    "supportsDub": false,
+    "supportsSub": false,
+    "supportsHome": false,
+    "supportsMultipleServers": true,
+    "supportsDirectLinks": false,
+    "supportsDownload": true,
+    "supportsSkipIntro": false,
+    "supportsResume": false,
+    "isSequential": false,
+    "sequentialDelayMs": 0
+  },
+
+  "endpoints": {
+    "searchType": "HTML_PAGE",
+    "detailType": "HTML_PAGE",
+    "sourceType": "HTML_EMBEDDED"
+  },
+
+  "extractorIds": [
+    "hubcloud",
+    "hubdrive",
+    "hubcdn"
+  ],
+
+  "priority": 95,
+  "fallbackTo": ["hdhub4u", "netmirror"],
+
+  "rateLimit": {
+    "maxConcurrent": 3,
+    "delayBetweenMs": 0
+  },
+
+  "maintainer": {
+    "github": "flex-drivee",
+    "addedAt": "2026-08-20",
+    "lastVerified": "2026-08-20"
+  }
+}
