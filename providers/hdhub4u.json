@@ -16,6 +16,7 @@
   "domains": {
     "primary": "https://new1.hdhub4u.af",
     "mirrors": [
+      "https://hdhub4u.bi",
       "https://hdhub4u.ec",
       "https://new3.hdhub4u.cl",
       "https://hdhub4u.fyi",
