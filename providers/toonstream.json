@@ -14,9 +14,10 @@
   "status": "online",
 
   "domains": {
-    "primary": "https://toon-stream.site",
+    "primary":
+"https://toonstream.vip", 
     "mirrors": [
-      "https://toonstream.vip",
+      "https://toon-stream.site",
       "https://toonstream.one",
       "https://toonmixindia.cc"
     ],
