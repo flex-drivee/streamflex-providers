@@ -15,9 +15,9 @@
 
   "domains": {
     "primary":
-"https://toonstream.vip", 
+"https://toon-stream.site", 
     "mirrors": [
-      "https://toon-stream.site",
+      "https://toonstream.vip",
       "https://toonstream.one",
       "https://toonmixindia.cc"
     ],
