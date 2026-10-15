@@ -1,0 +1,65 @@
+{
+  "$schema": "https://streamflex.dev/schemas/provider/v1.json",
+  "schemaVersion": 1,
+  "providerVersion": 1,
+  "minimumEngineVersion": "1.0.0",
+
+  "id": "castletv",
+  "name": "Castle TV",
+  "description": "Multi-language film and TV API provider.",
+  "language": "hi",
+  "region": "IN",
+
+  "lifecycle": "stable",
+  "status": "online",
+
+  "domains": {
+    "primary": "https://api.hlowb.com",
+    "mirrors": [
+      "https://api.fcvba.com",
+      "https://api.vcbaw.com"
+    ],
+    "updatedAt": "2026-10-15"
+  },
+
+  "capabilities": {
+    "supportsSearch": true,
+    "supportsMovies": true,
+    "supportsTV": true,
+    "supportsAnime": false,
+    "supportsDub": true,
+    "supportsSub": false,
+    "supportsHome": false,
+    "supportsMultipleServers": true,
+    "supportsDirectLinks": true,
+    "supportsDownload": true,
+    "supportsSkipIntro": false,
+    "supportsResume": false,
+    "isSequential": false,
+    "sequentialDelayMs": 0
+  },
+
+  "endpoints": {
+    "searchType": "API",
+    "detailType": "API",
+    "sourceType": "API"
+  },
+
+  "extractorIds": [
+    "castletv"
+  ],
+
+  "priority": 80,
+  "fallbackTo": ["moviebox", "hdhub4u"],
+
+  "rateLimit": {
+    "maxConcurrent": 3,
+    "delayBetweenMs": 0
+  },
+
+  "maintainer": {
+    "github": "flex-drivee",
+    "addedAt": "2026-10-15",
+    "lastVerified": "2026-10-15"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "$schema": "https://streamflex.dev/schemas/provider/v1.json",
   "schemaVersion": 1,
-  "providerVersion": 3,
+  "providerVersion": 5,
   "minimumEngineVersion": "1.0.0",
 
   "id": "hdhub4u",
@@ -14,20 +14,18 @@
   "status": "online",
 
   "domains": {
-    "primary":"https://new1.hdhub4u.free",
+    "primary": "https://new7.hdhub4u.cl",
     "mirrors": [
-       "https://new6.hdhub4u.cl",
-       "https://new5.hdhub4u.cl",
+      "https://new6.hdhub4u.cl",
+      "https://new5.hdhub4u.cl",
       "https://new1.hdhub4u.af",
-      "https://hdhub4u.bi",
-      "https://hdhub4u.ec",
-      "https://new3.hdhub4u.cl",
       "https://hdhub4u.fyi",
-      "https://hdhub4u.mom",
-      "https://hdhub4u.med"
+      "https://new3.hdhub4u.cl",
+      "https://hdhub4u.bi",
+      "https://hdhub4u.ec"
     ],
     "search": "https://search.pingora.fyi/collections/post/documents/search",
-    "updatedAt": "2026-08-07"
+    "updatedAt": "2026-10-15"
   },
 
   "capabilities": {
@@ -93,6 +91,6 @@
   "maintainer": {
     "github": "flex-drivee",
     "addedAt": "2026-07-24",
-    "lastVerified": "2026-07-24"
+    "lastVerified": "2026-10-15"
   }
 }

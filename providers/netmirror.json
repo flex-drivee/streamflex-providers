@@ -1,7 +1,7 @@
 {
   "$schema": "https://streamflex.dev/schemas/provider/v1.json",
   "schemaVersion": 1,
-  "providerVersion": 1,
+  "providerVersion": 2,
   "minimumEngineVersion": "1.0.0",
 
   "id": "netmirror",
@@ -11,12 +11,15 @@
   "region": "IN", 
 
   "lifecycle": "beta",
-  "status": "unknown",
+  "status": "online",
 
   "domains": {
-    "primary": "https://net77.cc",
-    "mirrors": ["https://net52.cc/pv"],
-    "updatedAt": "2026-07-24"
+    "primary": "https://net52.cc",
+    "mirrors": [
+      "https://net50.cc",
+      "https://net77.cc"
+    ],
+    "updatedAt": "2026-10-15"
   },
 
   "capabilities": {

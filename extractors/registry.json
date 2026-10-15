@@ -19,7 +19,10 @@
         "hubcloud.life",
         "hubcloud.bar"
       ],
-      "outputFormats": ["mp4", "m3u8"],
+      "outputFormats": [
+        "mp4",
+        "m3u8"
+      ],
       "requiresReferer": true,
       "headers": {
         "Referer": "https://hubcloud.tel/",
@@ -37,10 +40,13 @@
       "domains": [
         "pixeldrain.com"
       ],
-      "outputFormats": ["mp4", "m3u8"],
+      "outputFormats": [
+        "mp4",
+        "m3u8"
+      ],
       "requiresReferer": false,
       "headers": {},
-      "notes": "Direct API. CORS-friendly on web. URL pattern: pixeldrain.com/u/[FILE_ID] → API: pixeldrain.com/api/file/[FILE_ID]",
+      "notes": "Direct API. CORS-friendly on web. URL pattern: pixeldrain.com/u/[FILE_ID] \u2192 API: pixeldrain.com/api/file/[FILE_ID]",
       "androidClass": "com.streamflex.extractors.pixeldrain.PixelDrainExtractor",
       "webTs": "src/lib/extractors/PixelDrainExtractor.ts"
     },
@@ -55,7 +61,9 @@
         "filemoon.in",
         "filemoon.wf"
       ],
-      "outputFormats": ["m3u8"],
+      "outputFormats": [
+        "m3u8"
+      ],
       "requiresReferer": true,
       "headers": {
         "Referer": "https://filemoon.sx/",
@@ -84,7 +92,9 @@
         "d000d.com",
         "dooood.com"
       ],
-      "outputFormats": ["mp4"],
+      "outputFormats": [
+        "mp4"
+      ],
       "requiresReferer": true,
       "headers": {
         "Referer": "https://dood.la/"
@@ -106,7 +116,9 @@
         "strcloud.in",
         "shavetape.cash"
       ],
-      "outputFormats": ["mp4"],
+      "outputFormats": [
+        "mp4"
+      ],
       "requiresReferer": true,
       "headers": {
         "Referer": "https://streamtape.com/"
@@ -126,7 +138,10 @@
         "hubdrive.me",
         "hubdrive.be"
       ],
-      "outputFormats": ["mp4", "m3u8"],
+      "outputFormats": [
+        "mp4",
+        "m3u8"
+      ],
       "requiresReferer": true,
       "headers": {
         "Referer": "https://hubdrive.dad/"
@@ -144,7 +159,10 @@
         "hubcdn.xyz",
         "hubcdn.store"
       ],
-      "outputFormats": ["mp4", "m3u8"],
+      "outputFormats": [
+        "mp4",
+        "m3u8"
+      ],
       "requiresReferer": true,
       "headers": {
         "Referer": "https://hubcdn.xyz/"
@@ -162,7 +180,10 @@
         "hblinks.pro",
         "hblinksme.workers.dev"
       ],
-      "outputFormats": ["mp4", "m3u8"],
+      "outputFormats": [
+        "mp4",
+        "m3u8"
+      ],
       "requiresReferer": true,
       "headers": {
         "Referer": "https://hblinks.pro/"
@@ -181,10 +202,13 @@
         "googleusercontent.com",
         "rr1---sn"
       ],
-      "outputFormats": ["mp4", "m3u8"],
+      "outputFormats": [
+        "mp4",
+        "m3u8"
+      ],
       "requiresReferer": false,
       "headers": {},
-      "notes": "Direct Google CDN URL. Always highest quality when available. No extraction needed — treat as direct playable URL.",
+      "notes": "Direct Google CDN URL. Always highest quality when available. No extraction needed \u2014 treat as direct playable URL.",
       "androidClass": "com.streamflex.extractors.googlevideo.GoogleVideoExtractor",
       "webTs": "src/lib/extractors/GoogleVideoExtractor.ts"
     },
@@ -200,7 +224,9 @@
         "mixdrop.co",
         "mixdrop.bz"
       ],
-      "outputFormats": ["mp4"],
+      "outputFormats": [
+        "mp4"
+      ],
       "requiresReferer": true,
       "headers": {
         "Referer": "https://mixdrop.sb/"
@@ -215,20 +241,229 @@
       "priority": 50,
       "status": "active",
       "domains": [],
-      "outputFormats": ["mp4", "m3u8"],
+      "outputFormats": [
+        "mp4",
+        "m3u8"
+      ],
       "requiresReferer": false,
       "headers": {},
       "notes": "Generic HTTP redirect follower. Used as fallback when URL host doesn't match a specific extractor. Follows redirects until reaching a known host or direct media URL.",
       "androidClass": "com.streamflex.extractors.redirect.RedirectExtractor",
       "webTs": "src/lib/extractors/RedirectExtractor.ts"
+    },
+    {
+      "id": "moviebox",
+      "name": "MovieBox Extractor",
+      "priority": 95,
+      "status": "active",
+      "domains": [
+        "hakunaymatata.com",
+        "aoneroom.com",
+        "inmoviebox.com",
+        "movie-box.co",
+        "movieboxhd.net"
+      ],
+      "outputFormats": [
+        "mpd",
+        "mp4"
+      ],
+      "requiresReferer": true,
+      "headers": {
+        "Referer": "https://movie-box.co"
+      },
+      "notes": "Direct CDN / Akamai & Web H5 DASH streaming.",
+      "androidClass": "com.cinetheta.extractors.moviebox.MovieBoxExtractor"
+    },
+    {
+      "id": "streamruby",
+      "name": "StreamRuby",
+      "priority": 92,
+      "status": "active",
+      "domains": [
+        "streamruby.com",
+        "rubystream.com",
+        "rubystm.com"
+      ],
+      "outputFormats": [
+        "m3u8"
+      ],
+      "requiresReferer": true,
+      "headers": {
+        "Referer": "https://streamruby.com/"
+      },
+      "notes": "Multi-audio / multi-quality HLS streams.",
+      "androidClass": "com.cinetheta.extractors.streamruby.StreamRubyExtractor"
+    },
+    {
+      "id": "awsstream",
+      "name": "AWSStream",
+      "priority": 91,
+      "status": "active",
+      "domains": [
+        "awsstream.com",
+        "awscloud.mov"
+      ],
+      "outputFormats": [
+        "m3u8"
+      ],
+      "requiresReferer": true,
+      "headers": {},
+      "notes": "Master HLS with multi-audio.",
+      "androidClass": "com.cinetheta.extractors.awsstream.AWSStreamExtractor"
+    },
+    {
+      "id": "driveseed",
+      "name": "DriveSeed",
+      "priority": 88,
+      "status": "active",
+      "domains": [
+        "driveseed.org",
+        "driveseed.workers.dev",
+        "driveseed.me"
+      ],
+      "outputFormats": [
+        "mp4",
+        "mkv"
+      ],
+      "requiresReferer": false,
+      "headers": {},
+      "notes": "ResumeBot / Direct CDN Google drive mirror.",
+      "androidClass": "com.cinetheta.extractors.driveseed.DriveSeedExtractor"
+    },
+    {
+      "id": "driveleech",
+      "name": "DriveLeech",
+      "priority": 87,
+      "status": "active",
+      "domains": [
+        "driveleech.org",
+        "driveleech.workers.dev"
+      ],
+      "outputFormats": [
+        "mp4"
+      ],
+      "requiresReferer": false,
+      "headers": {},
+      "notes": "Fast cloud drive proxy.",
+      "androidClass": "com.cinetheta.extractors.driveleech.DriveLeechExtractor"
+    },
+    {
+      "id": "thenaukriadda",
+      "name": "TheNaukriAdda",
+      "priority": 86,
+      "status": "active",
+      "domains": [
+        "thenaukriadda.in",
+        "naukriadda.org"
+      ],
+      "outputFormats": [
+        "mp4"
+      ],
+      "requiresReferer": false,
+      "headers": {},
+      "notes": "Fast bypass gateway.",
+      "androidClass": "com.cinetheta.extractors.thenaukriadda.TheNaukriAddaExtractor"
+    },
+    {
+      "id": "abyss",
+      "name": "Abyss",
+      "priority": 84,
+      "status": "active",
+      "domains": [
+        "short.ink",
+        "abysscdn.com",
+        "abyss.to"
+      ],
+      "outputFormats": [
+        "mp4",
+        "m3u8"
+      ],
+      "requiresReferer": true,
+      "headers": {},
+      "notes": "AnimeDekho fast CDN mirror.",
+      "androidClass": "com.cinetheta.extractors.abyss.AbyssExtractor"
+    },
+    {
+      "id": "turbovid",
+      "name": "TurboVid",
+      "priority": 82,
+      "status": "active",
+      "domains": [
+        "turbovid.me",
+        "turbovid.cc"
+      ],
+      "outputFormats": [
+        "m3u8"
+      ],
+      "requiresReferer": true,
+      "headers": {},
+      "notes": "HLS streaming player.",
+      "androidClass": "com.cinetheta.extractors.turbovid.TurboVidExtractor"
+    },
+    {
+      "id": "xerver",
+      "name": "Xerver",
+      "priority": 81,
+      "status": "active",
+      "domains": [
+        "xerver.pro",
+        "xerver.co"
+      ],
+      "outputFormats": [
+        "m3u8"
+      ],
+      "requiresReferer": true,
+      "headers": {},
+      "notes": "Encrypted HLS streaming host.",
+      "androidClass": "com.cinetheta.extractors.xerver.XerverExtractor"
+    },
+    {
+      "id": "vidmoly",
+      "name": "VidMoly",
+      "priority": 60,
+      "status": "active",
+      "domains": [
+        "vidmoly.to",
+        "vidmoly.me",
+        "vidmoly.net"
+      ],
+      "outputFormats": [
+        "m3u8"
+      ],
+      "requiresReferer": true,
+      "headers": {
+        "Referer": "https://vidmoly.to/"
+      },
+      "notes": "P.A.C.K.E.R. obfuscated HLS player.",
+      "androidClass": "com.cinetheta.extractors.vidmoly.VidMolyExtractor"
     }
   ],
   "qualityPatterns": {
-    "2160p": ["2160p", "4k", "uhd", "2160"],
-    "1080p": ["1080p", "1080", "fhd", "fullhd"],
-    "720p": ["720p", "720", "hd"],
-    "480p": ["480p", "480"],
-    "360p": ["360p", "360"],
+    "2160p": [
+      "2160p",
+      "4k",
+      "uhd",
+      "2160"
+    ],
+    "1080p": [
+      "1080p",
+      "1080",
+      "fhd",
+      "fullhd"
+    ],
+    "720p": [
+      "720p",
+      "720",
+      "hd"
+    ],
+    "480p": [
+      "480p",
+      "480"
+    ],
+    "360p": [
+      "360p",
+      "360"
+    ],
     "unknown": []
   },
   "defaultFallbackOrder": [
@@ -242,6 +477,16 @@
     "dood",
     "streamtape",
     "mixdrop",
-    "redirect"
+    "redirect",
+    "moviebox",
+    "streamruby",
+    "awsstream",
+    "driveseed",
+    "driveleech",
+    "thenaukriadda",
+    "abyss",
+    "turbovid",
+    "xerver",
+    "vidmoly"
   ]
 }

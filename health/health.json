@@ -6,41 +6,95 @@
     "nextCheck": "2026-07-25T04:00:00Z"
   },
   "providers": {
+    "moviebox": {
+      "status": "online",
+      "lastSuccess": "2026-10-15T15:00:00Z",
+      "lastFailure": null,
+      "consecutiveFailures": 0,
+      "avgSearchResultCount": 10,
+      "avgStreamCount": 5,
+      "activeDomain": "https://api.moviebox.ph"
+    },
     "hdhub4u": {
       "status": "online",
-      "lastSuccess": "2026-07-24T04:00:00Z",
+      "lastSuccess": "2026-10-15T15:00:00Z",
       "lastFailure": null,
       "consecutiveFailures": 0,
       "avgSearchResultCount": 5,
       "avgStreamCount": 3,
-      "activeDomain": "https://new1.hdhub4u.af"
+      "activeDomain": "https://new7.hdhub4u.cl"
+    },
+    "uhdmovies": {
+      "status": "online",
+      "lastSuccess": "2026-10-15T15:00:00Z",
+      "lastFailure": null,
+      "consecutiveFailures": 0,
+      "avgSearchResultCount": 5,
+      "avgStreamCount": 4,
+      "activeDomain": "https://uhdmovies.my"
+    },
+    "castletv": {
+      "status": "online",
+      "lastSuccess": "2026-10-15T15:00:00Z",
+      "lastFailure": null,
+      "consecutiveFailures": 0,
+      "avgSearchResultCount": 8,
+      "avgStreamCount": 4,
+      "activeDomain": "https://api.hlowb.com"
+    },
+    "piratexplay": {
+      "status": "online",
+      "lastSuccess": "2026-10-15T15:00:00Z",
+      "lastFailure": null,
+      "consecutiveFailures": 0,
+      "avgSearchResultCount": 6,
+      "avgStreamCount": 2,
+      "activeDomain": "https://piratexplay.cc"
+    },
+    "animedekho": {
+      "status": "online",
+      "lastSuccess": "2026-10-15T15:00:00Z",
+      "lastFailure": null,
+      "consecutiveFailures": 0,
+      "avgSearchResultCount": 6,
+      "avgStreamCount": 3,
+      "activeDomain": "https://animedekho.app"
+    },
+    "toonstream": {
+      "status": "online",
+      "lastSuccess": "2026-10-15T15:00:00Z",
+      "lastFailure": null,
+      "consecutiveFailures": 0,
+      "avgSearchResultCount": 6,
+      "avgStreamCount": 3,
+      "activeDomain": "https://toon-stream.site"
+    },
+    "fourkhdhub": {
+      "status": "online",
+      "lastSuccess": "2026-10-15T15:00:00Z",
+      "lastFailure": null,
+      "consecutiveFailures": 0,
+      "avgSearchResultCount": 5,
+      "avgStreamCount": 2,
+      "activeDomain": "https://4khdhub.one"
     },
     "netmirror": {
-      "status": "unknown",
-      "lastSuccess": null,
+      "status": "online",
+      "lastSuccess": "2026-10-15T15:00:00Z",
       "lastFailure": null,
       "consecutiveFailures": 0,
-      "avgSearchResultCount": 0,
-      "avgStreamCount": 0,
-      "activeDomain": null
+      "avgSearchResultCount": 4,
+      "avgStreamCount": 2,
+      "activeDomain": "https://net52.cc"
     },
-    "ottmirror": {
-      "status": "unknown",
-      "lastSuccess": null,
+    "youtube": {
+      "status": "online",
+      "lastSuccess": "2026-10-15T15:00:00Z",
       "lastFailure": null,
       "consecutiveFailures": 0,
-      "avgSearchResultCount": 0,
-      "avgStreamCount": 0,
-      "activeDomain": null
-    },
-    "vegamovies": {
-      "status": "unknown",
-      "lastSuccess": null,
-      "lastFailure": null,
-      "consecutiveFailures": 0,
-      "avgSearchResultCount": 0,
-      "avgStreamCount": 0,
-      "activeDomain": null
+      "avgSearchResultCount": 10,
+      "avgStreamCount": 3,
+      "activeDomain": "https://invidious.f5.si"
     }
   },
   "extractors": {

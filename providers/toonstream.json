@@ -14,14 +14,13 @@
   "status": "online",
 
   "domains": {
-    "primary":
-"https://toon-stream.site", 
+    "primary": "https://toon-stream.site",
     "mirrors": [
       "https://toonstream.vip",
       "https://toonstream.one",
       "https://toonmixindia.cc"
     ],
-    "search": "https://toon-stream.site/search?keyword={query}",
+    "search": "https://toon-stream.site/s?q={query}",
     "updatedAt": "2026-09-02"
   },
 

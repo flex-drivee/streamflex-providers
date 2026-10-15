@@ -1,7 +1,7 @@
 {
   "$schema": "https://streamflex.dev/schemas/provider/v1.json",
   "schemaVersion": 1,
-  "providerVersion": 1,
+  "providerVersion": 2,
   "minimumEngineVersion": "1.0.0",
 
   "id": "moviebox",
@@ -21,7 +21,28 @@
       "https://api4.aoneroom.com",
       "https://api4sg.aoneroom.com"
     ],
-    "updatedAt": "2026-08-20"
+    "webDomains": [
+      "https://movie-box.co",
+      "https://movieboxhd.net",
+      "https://123moviesfree.club",
+      "https://sflix.film",
+      "https://movieboxonline.net",
+      "https://netnaija.film",
+      "https://h5-api.aoneroom.com"
+    ],
+    "updatedAt": "2026-10-15"
+  },
+
+  "config": {
+    "versionCode": 50020121,
+    "versionName": "4.0.01.0813.03",
+    "streamReferer": "https://movie-box.co",
+    "blacklistVideoHashes": [
+      "80da52722ee7de7a4303290af6783424",
+      "b164fbfb4347792950bdfbfb563d39d9",
+      "1c7de0bd3393702d9191801f15f88f8d",
+      "9a0461bc39da389663bf3dbb17091d3f"
+    ]
   },
 
   "capabilities": {
@@ -29,11 +50,11 @@
     "supportsMovies": true,
     "supportsTV": true,
     "supportsAnime": false,
-    "supportsDub": false,
+    "supportsDub": true,
     "supportsSub": true,
     "supportsHome": false,
     "supportsMultipleServers": true,
-    "supportsDirectLinks": false,
+    "supportsDirectLinks": true,
     "supportsDownload": true,
     "supportsSkipIntro": false,
     "supportsResume": false,
@@ -62,6 +83,6 @@
   "maintainer": {
     "github": "flex-drivee",
     "addedAt": "2026-08-20",
-    "lastVerified": "2026-08-20"
+    "lastVerified": "2026-10-15"
   }
 }

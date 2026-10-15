@@ -1,0 +1,67 @@
+{
+  "$schema": "https://streamflex.dev/schemas/provider/v1.json",
+  "schemaVersion": 1,
+  "providerVersion": 1,
+  "minimumEngineVersion": "1.0.0",
+
+  "id": "youtube",
+  "name": "YouTube",
+  "description": "Trailer and clip player using Invidious mirrors.",
+  "language": "en",
+  "region": "GLOBAL",
+
+  "lifecycle": "stable",
+  "status": "online",
+
+  "domains": {
+    "primary": "https://invidious.f5.si",
+    "mirrors": [
+      "https://inv.nadeko.net",
+      "https://invidious.nerdvpn.de",
+      "https://invidious.tiekoetter.com",
+      "https://vid.priv.au"
+    ],
+    "updatedAt": "2026-10-15"
+  },
+
+  "capabilities": {
+    "supportsSearch": true,
+    "supportsMovies": false,
+    "supportsTV": false,
+    "supportsAnime": false,
+    "supportsDub": false,
+    "supportsSub": true,
+    "supportsHome": false,
+    "supportsMultipleServers": false,
+    "supportsDirectLinks": true,
+    "supportsDownload": true,
+    "supportsSkipIntro": false,
+    "supportsResume": false,
+    "isSequential": false,
+    "sequentialDelayMs": 0
+  },
+
+  "endpoints": {
+    "searchType": "API",
+    "detailType": "API",
+    "sourceType": "API"
+  },
+
+  "extractorIds": [
+    "youtube"
+  ],
+
+  "priority": 50,
+  "fallbackTo": [],
+
+  "rateLimit": {
+    "maxConcurrent": 3,
+    "delayBetweenMs": 0
+  },
+
+  "maintainer": {
+    "github": "flex-drivee",
+    "addedAt": "2026-10-15",
+    "lastVerified": "2026-10-15"
+  }
+}
